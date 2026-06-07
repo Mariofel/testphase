@@ -1,0 +1,481 @@
+/* ==========================================================================
+   1. GLOBALE EINSTELLUNGEN & VARIABLEN
+   ========================================================================== */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+}
+
+:root {
+    --logo-yellow: #ffcc00;
+    --logo-orange: #ff6600;
+    --logo-orange-light: #ff851b; /* Perfekte goldene Mitte für ein dezentes Orange */
+    --logo-darkred: #800000;
+    --text-dark: #222;
+    --text-light: #555;
+    --bg-light: #fff;
+    --bg-site: #fcfcfc;
+}
+
+html, body {
+    width: 100%;
+    overflow-x: hidden; /* Verhindert horizontales Scrollen auf Handys */
+}
+
+body {
+    background-color: var(--bg-site);
+    color: var(--text-dark);
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+/* ==========================================================================
+   2. HEADER & NAVIGATION
+   ========================================================================== */
+header {
+    background: linear-gradient(135deg, var(--logo-yellow), var(--logo-orange));
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    padding: 1rem 2rem;
+    width: 100%;
+}
+
+.header-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+}
+
+.logo-area {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.logo-area .site-logo {
+    max-height: 120px; /* Grösseres Logo für Desktop */
+    width: auto;
+    display: block;
+    transition: max-height 0.3s ease;
+}
+
+nav {
+    display: block;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    gap: 1rem; 
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: var(--text-dark);
+    font-weight: bold;
+    font-size: 1rem;
+    padding: 0.7rem 1.4rem;
+    background: rgba(255, 255, 255, 0.25); /* Hellere, moderne Transparenz */
+    border: none;
+    border-radius: 6px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+    transition: background-color 0.25s, color 0.25s, transform 0.25s, box-shadow 0.25s;
+    display: inline-block;
+}
+
+nav ul li a:hover {
+    background-color: var(--logo-darkred);
+    color: var(--bg-light);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+    transform: translateY(-1px);
+}
+
+nav ul li a.active {
+    background-color: var(--logo-darkred);
+    color: var(--bg-light);
+    box-shadow: inset 0 2px 4px rgba(0,0,0,0.2);
+}
+
+/* ==========================================================================
+   3. HAUPTINHALT & STANDARDS
+   ========================================================================== */
+.main-content {
+    flex: 1;
+    max-width: 1200px;
+    width: 100%;
+    margin: 2rem auto;
+    padding: 0 1.5rem;
+}
+
+h1, h2, h3 {
+    color: var(--logo-darkred);
+    margin-bottom: 1rem;
+}
+
+h3 {
+    margin-top: 0;
+}
+
+p {
+    line-height: 1.6;
+    margin-bottom: 1.5rem;
+}
+
+/* ==========================================================================
+   4. SEITENSPEZIFISCHE STILE (STARTSEITE & RECHTLICHES)
+   ========================================================================== */
+.hero-section {
+    text-align: center;
+    padding: 3rem 1.5rem;
+    background-color: var(--bg-light);
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+    margin-bottom: 2rem;
+    width: 100%;
+}
+
+.tagline {
+    font-size: 1.2rem;
+    font-style: italic;
+    color: var(--text-light);
+}
+
+.services-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 1.5rem;
+    margin-top: 2rem;
+}
+
+.service-box {
+    background: var(--bg-light);
+    padding: 1.5rem;
+    border-radius: 6px;
+    border-left: 4px solid var(--logo-orange-light); 
+    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+}
+
+.impressum-section, .privacy-section {
+    background: var(--bg-light);
+    padding: 2.5rem;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+}
+
+/* ==========================================================================
+   5. ÜBER UNS (Zweispaltig mit Inhaberbild)
+   ========================================================================== */
+.about-section-wrapper {
+    display: flex;
+    gap: 3rem;
+    background: var(--bg-light);
+    padding: 2.5rem;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+    align-items: flex-start;
+}
+
+.about-text-content {
+    flex: 2;
+}
+
+.about-image-content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background: var(--bg-site);
+    padding: 1rem;
+    border-radius: 6px;
+    border: 1px solid #eee;
+}
+
+.owner-img {
+    width: 100%;
+    max-width: 300px;
+    height: auto;
+    border-radius: 4px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    object-fit: cover;
+}
+
+.owner-caption {
+    margin-top: 0.8rem;
+    font-size: 0.85rem;
+    color: var(--text-light);
+    text-align: center;
+    font-weight: bold;
+}
+
+/* ==========================================================================
+   6. REFERENZEN-GALERIE (3 Spalten Raster)
+   ========================================================================== */
+.gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+    margin-top: 2rem;
+}
+
+.gallery-item {
+    background-color: var(--bg-light);
+    border-radius: 6px;
+    overflow: hidden;
+    box-shadow: 0 3px 6px rgba(0,0,0,0.08);
+    display: flex;
+    flex-direction: column;
+}
+
+.gallery-img {
+    width: 100%;
+    height: 220px;
+    object-fit: cover;
+    background-color: #eaeaea;
+}
+
+.gallery-text {
+    padding: 1rem;
+    flex-grow: 1;
+}
+
+.gallery-text h4 {
+    color: var(--logo-orange-light); 
+    margin-bottom: 0.5rem;
+}
+
+/* ==========================================================================
+   7. KONTAKTSEITE (Zentrierter Gesamt-Block mit linksbündigen Texten)
+   ========================================================================== */
+/* Erzeugt einen umschliessenden Block, der die Elemente bündelt und zentriert */
+.contact-page-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Zentriert die gesamte Box-Einheit auf dem Desktop */
+    width: 100%;
+    padding: 1rem 0;
+}
+
+/* Der Titel und die Einleitung orientieren sich jetzt an der Breite der Karte */
+.main-content > h1, 
+.contact-intro {
+    width: 100%;
+    max-width: 480px; /* Exakt dieselbe Breite wie die Visitenkarte */
+    text-align: left; /* Edle, linksbündige Ausrichtung */
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.contact-intro {
+    margin-bottom: 2rem;
+    color: var(--text-light);
+}
+
+/* Die Visitenkarte */
+.contact-info-sidebar {
+    background: var(--bg-light);
+    width: 100%;
+    max-width: 480px; 
+    border-radius: 12px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.06);
+    border-left: 6px solid var(--logo-orange-light); 
+    padding: 2.5rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.contact-info-sidebar:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+}
+
+/* Der obere Bereich mit der Überschrift "Direktkontakt" */
+.contact-info-sidebar h3 {
+    font-size: 1.6rem;
+    border-bottom: 1px solid #eee;
+    padding-bottom: 0.8rem;
+    margin-bottom: 0.5rem;
+}
+
+/* Gestaltet die einzelnen Info-Blöcke */
+.info-block {
+    margin-top: 1.2rem;
+    text-align: left; 
+}
+
+.info-block h4 {
+    color: var(--logo-orange-light); 
+    margin-bottom: 0.2rem;
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.info-block p, .info-block a {
+    font-size: 1.1rem;
+    color: var(--text-dark);
+    line-height: 1.4;
+}
+
+.info-block a {
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.2s;
+}
+
+.info-block a:hover {
+    color: var(--logo-darkred);
+    text-decoration: underline;
+}
+
+/* Der Download-Button am unteren Ende der Karte */
+.vcard-download-btn {
+    display: block;
+    text-decoration: none;
+    background-color: #fcfcfc;
+    color: var(--text-dark);
+    border: 1px solid #ddd;
+    padding: 0.8rem 1.2rem;
+    font-size: 0.95rem;
+    font-weight: bold;
+    border-radius: 6px;
+    text-align: center;
+    transition: background-color 0.25s, color 0.25s, border-color 0.25s;
+    width: 100%;
+    margin-top: 2.5rem;
+}
+
+.vcard-download-btn:hover {
+    background-color: var(--logo-darkred);
+    color: var(--bg-light);
+    border-color: var(--logo-darkred);
+}
+
+/* ==========================================================================
+   8. FOOTER & RECHTLICHES
+   ========================================================================== */
+footer {
+    background-color: #222;
+    color: var(--bg-light);
+    padding: 2rem 1rem;
+    text-align: center;
+    margin-top: auto;
+}
+
+.footer-container p {
+    margin-bottom: 0.5rem;
+}
+
+.footer-nav a {
+    color: var(--logo-orange-light); 
+    text-decoration: none;
+    font-size: 0.9rem;
+}
+
+.footer-nav a:hover {
+    text-decoration: underline;
+    color: var(--logo-yellow);
+}
+
+/* ==========================================================================
+   9. MEDIA QUERIES (MOBILE OPTIMIERUNG FÜR SMARTPHONES)
+   ========================================================================== */
+@media (max-width: 900px) {
+    .gallery-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 768px) {
+    header {
+        padding: 1rem;
+    }
+
+    .header-container {
+        flex-direction: column;
+        gap: 1.5rem;
+        text-align: center;
+    }
+    
+    nav {
+        width: 100%;
+    }
+
+    nav ul {
+        flex-direction: column;
+        gap: 0.6rem;
+        width: 100%;
+    }
+
+    nav ul li {
+        width: 100%;
+    }
+
+    nav ul li a {
+        display: block;
+        width: 100%;
+        padding: 0.9rem;
+        border: none;
+        background: rgba(255, 255, 255, 0.2); 
+        text-align: center;
+        border-radius: 6px; 
+        box-shadow: none;
+    }
+    
+    nav ul li a:hover {
+        transform: none;
+        box-shadow: none;
+        background-color: var(--logo-darkred);
+    }
+
+    .logo-area .site-logo {
+        max-height: 90px;
+    }
+
+    .main-content {
+        padding: 0 0.5rem; 
+        margin: 1rem auto;
+    }
+
+    /* Auf Smartphones bündeln wir die Texte wieder normal links am Rand */
+    .main-content > h1, 
+    .contact-intro {
+        max-width: 100%;
+        padding: 0 0.5rem;
+        margin-bottom: 1.5rem;
+    }
+
+    /* Mobile Anpassung der Visitenkarte */
+    .contact-info-sidebar {
+        padding: 1.8rem 1.2rem;
+        border-left: none;
+        border-top: 5px solid var(--logo-orange-light);
+    }
+
+    .about-section-wrapper {
+        flex-direction: column;
+        gap: 1.5rem;
+        padding: 1rem; 
+    }
+
+    .about-image-content {
+        width: 100%;
+    }
+    
+    .gallery-grid {
+        grid-template-columns: 1fr;
+        gap: 1.2rem;
+    }
+
+    .impressum-section, .privacy-section {
+        padding: 1rem; 
+    }
+}

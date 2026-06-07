@@ -1,0 +1,30 @@
+<?php
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    // Daten auslesen und bereinigen (Schutz vor Manipulation)
+    $name = strip_tags(trim($_POST["name"]));
+    $email = filter_var(trim($_POST["email"]), FILTER_SANITIZE_EMAIL);
+    $telefon = strip_tags(trim($_POST["telefon"]));
+    $message = trim($_POST["message"]);
+
+    // HIER DEINE E-MAIL-ADRESSE EINTRAGEN:
+    $to = "info@maler-haefliger.ch"; 
+    
+    $subject = "Neue Kontaktanfrage von: $name";
+    
+    $email_content = "Name: $name\n";
+    $email_content .= "E-Mail: $email\n";
+    $email_content .= "Telefon: $telefon\n\n";
+    $email_content .= "Nachricht:\n$message\n";
+
+    $email_headers = "From: $name <$email>";
+
+    // Mail versenden
+    if (mail($to, $subject, $email_content, $email_headers)) {
+        echo "<script>alert('Vielen Dank! Ihre Nachricht wurde erfolgreich gesendet.'); window.location.href='kontakt.php';</script>";
+    } else {
+        echo "<script>alert('Hoppla! Es gab ein Problem beim Senden. Bitte versuchen Sie es nochmals.'); window.location.href='kontakt.php';</script>";
+    }
+} else {
+    header("Location: kontakt.php");
+}
+?>
