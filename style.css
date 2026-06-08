@@ -11,7 +11,7 @@
 :root {
     --logo-yellow: #ffcc00;
     --logo-orange: #ff6600;
-    --logo-orange-light: #ff851b; /* Perfekte goldene Mitte für ein dezentes Orange */
+    --logo-orange-light: #ff851b;
     --logo-darkred: #800000;
     --text-dark: #222;
     --text-light: #555;
@@ -21,7 +21,7 @@
 
 html, body {
     width: 100%;
-    overflow-x: hidden; /* Verhindert horizontales Scrollen auf Handys */
+    overflow-x: hidden;
 }
 
 body {
@@ -58,7 +58,7 @@ header {
 }
 
 .logo-area .site-logo {
-    max-height: 120px; /* Grösseres Logo für Desktop */
+    max-height: 120px;
     width: auto;
     display: block;
     transition: max-height 0.3s ease;
@@ -80,7 +80,7 @@ nav ul li a {
     font-weight: bold;
     font-size: 1rem;
     padding: 0.7rem 1.4rem;
-    background: rgba(255, 255, 255, 0.25); /* Hellere, moderne Transparenz */
+    background: rgba(255, 255, 255, 0.25);
     border: none;
     border-radius: 6px;
     box-shadow: 0 1px 3px rgba(0,0,0,0.05);
@@ -118,7 +118,11 @@ h1, h2, h3 {
 }
 
 h3 {
-    margin-top: 0;
+    margin-top: 1.2rem;
+    color: var(--text-light);
+    font-size: 0.95rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
 }
 
 p {
@@ -229,17 +233,12 @@ p {
     box-shadow: 0 3px 6px rgba(0,0,0,0.08);
     display: flex;
     flex-direction: column;
-}
-
-.gallery-img {
-    width: 100%;
-    height: 220px;
-    object-fit: cover;
-    background-color: #eaeaea;
+    padding: 1rem;
+    margin-bottom: 2.5rem;
 }
 
 .gallery-text {
-    padding: 1rem;
+    padding: 0;
     flex-grow: 1;
 }
 
@@ -249,23 +248,21 @@ p {
 }
 
 /* ==========================================================================
-   7. KONTAKTSEITE (Zentrierter Gesamt-Block mit linksbündigen Texten)
+   7. KONTAKTSEITE
    ========================================================================== */
-/* Erzeugt einen umschliessenden Block, der die Elemente bündelt und zentriert */
 .contact-page-wrapper {
     display: flex;
     flex-direction: column;
-    align-items: center; /* Zentriert die gesamte Box-Einheit auf dem Desktop */
+    align-items: center;
     width: 100%;
     padding: 1rem 0;
 }
 
-/* Der Titel und die Einleitung orientieren sich jetzt an der Breite der Karte */
 .main-content > h1, 
 .contact-intro {
     width: 100%;
-    max-width: 480px; /* Exakt dieselbe Breite wie die Visitenkarte */
-    text-align: left; /* Edle, linksbündige Ausrichtung */
+    max-width: 480px;
+    text-align: left;
     margin-left: auto;
     margin-right: auto;
 }
@@ -275,7 +272,6 @@ p {
     color: var(--text-light);
 }
 
-/* Die Visitenkarte */
 .contact-info-sidebar {
     background: var(--bg-light);
     width: 100%;
@@ -297,7 +293,6 @@ p {
     box-shadow: 0 15px 35px rgba(0,0,0,0.1);
 }
 
-/* Der obere Bereich mit der Überschrift "Direktkontakt" */
 .contact-info-sidebar h3 {
     font-size: 1.6rem;
     border-bottom: 1px solid #eee;
@@ -305,7 +300,6 @@ p {
     margin-bottom: 0.5rem;
 }
 
-/* Gestaltet die einzelnen Info-Blöcke */
 .info-block {
     margin-top: 1.2rem;
     text-align: left; 
@@ -336,7 +330,6 @@ p {
     text-decoration: underline;
 }
 
-/* Der Download-Button am unteren Ende der Karte */
 .vcard-download-btn {
     display: block;
     text-decoration: none;
@@ -386,7 +379,7 @@ footer {
 }
 
 /* ==========================================================================
-   9. MEDIA QUERIES (MOBILE OPTIMIERUNG FÜR SMARTPHONES)
+   9. MEDIA QUERIES
    ========================================================================== */
 @media (max-width: 900px) {
     .gallery-grid {
@@ -445,7 +438,6 @@ footer {
         margin: 1rem auto;
     }
 
-    /* Auf Smartphones bündeln wir die Texte wieder normal links am Rand */
     .main-content > h1, 
     .contact-intro {
         max-width: 100%;
@@ -453,7 +445,6 @@ footer {
         margin-bottom: 1.5rem;
     }
 
-    /* Mobile Anpassung der Visitenkarte */
     .contact-info-sidebar {
         padding: 1.8rem 1.2rem;
         border-left: none;
@@ -478,4 +469,39 @@ footer {
     .impressum-section, .privacy-section {
         padding: 1rem; 
     }
+
+    .project-images-grid {
+        flex-direction: column;
+    }
+
+    .gallery-img {
+        height: auto;
+        max-height: 400px;
+        width: 100%;
+    }
+
+    footer {
+        padding: 2.5rem 1.5rem;
+    }
+}
+
+/* ==========================================================================
+   10. NEUE REFERENZ-GALERIE (Zusatz für die neuen Anforderungen)
+   ========================================================================== */
+.project-images-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    align-items: flex-start;
+    margin-bottom: 50px;
+}
+
+.gallery-img {
+    height: 400px;
+    width: auto;
+    max-width: 100%;
+    object-fit: contain;
+    background-color: #f5f5f5;
+    border-radius: 4px;
+    border: 1px solid #eee;
 }
